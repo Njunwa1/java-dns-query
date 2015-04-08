@@ -116,11 +116,11 @@ public class Main {
             for (int i = 0; i < numberOfAnswer; i++) {
                 input.mark(1);
                 byte ahead = input.readByte();
-                if (ahead == (byte)0xc0) {
+                input.reset();
+                if ((ahead & 0xc0) == 0xc0) {
                     // compressed name
-                    input.skip(1);
+                    input.skip(2);
                 } else {
-                    input.reset();
                     skipDomainName(input);
                 }
 
