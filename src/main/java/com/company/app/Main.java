@@ -24,6 +24,7 @@ public class Main {
             System.out.println("Timeout");
         } catch (IOException ex) {
             System.out.println("Unexpected IOException: " + ex);
+            ex.printStackTrace(System.out);
         }
         for (String ip : ipList) {
             System.out.println(ip);
